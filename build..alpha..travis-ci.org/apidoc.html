@@ -1,0 +1,1536 @@
+<div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a
+
+        href="http://commonmark.org"
+
+    >commonmark (v0.27.0)</a>
+</h1>
+<h4>a strongly specified, highly compatible variant of Markdown</h4>
+<div class="apidocSectionDiv"><a
+    href="#apidoc.tableOfContents"
+    id="apidoc.tableOfContents"
+><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.commonmark">module commonmark</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.commonmark.HtmlRenderer">
+            function <span class="apidocSignatureSpan">commonmark.</span>HtmlRenderer
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.commonmark.Node">
+            function <span class="apidocSignatureSpan">commonmark.</span>Node
+            <span class="apidocSignatureSpan">(nodeType, sourcepos)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.commonmark.Parser">
+            function <span class="apidocSignatureSpan">commonmark.</span>Parser
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.commonmark.XmlRenderer">
+            function <span class="apidocSignatureSpan">commonmark.</span>XmlRenderer
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">commonmark.</span>HtmlRenderer.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">commonmark.</span>Node.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">commonmark.</span>common</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">commonmark.</span>version</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.commonmark.HtmlRenderer">module commonmark.HtmlRenderer</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.commonmark.HtmlRenderer.HtmlRenderer">
+            function <span class="apidocSignatureSpan">commonmark.</span>HtmlRenderer
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.commonmark.HtmlRenderer.prototype">module commonmark.HtmlRenderer.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.commonmark.HtmlRenderer.prototype.attrs">
+            function <span class="apidocSignatureSpan">commonmark.HtmlRenderer.prototype.</span>attrs
+            <span class="apidocSignatureSpan">(node)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.commonmark.HtmlRenderer.prototype.block_quote">
+            function <span class="apidocSignatureSpan">commonmark.HtmlRenderer.prototype.</span>block_quote
+            <span class="apidocSignatureSpan">(node, entering)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.commonmark.HtmlRenderer.prototype.code">
+            function <span class="apidocSignatureSpan">commonmark.HtmlRenderer.prototype.</span>code
+            <span class="apidocSignatureSpan">(node)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.commonmark.HtmlRenderer.prototype.code_block">
+            function <span class="apidocSignatureSpan">commonmark.HtmlRenderer.prototype.</span>code_block
+            <span class="apidocSignatureSpan">(node)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.commonmark.HtmlRenderer.prototype.custom_block">
+            function <span class="apidocSignatureSpan">commonmark.HtmlRenderer.prototype.</span>custom_block
+            <span class="apidocSignatureSpan">(node, entering)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.commonmark.HtmlRenderer.prototype.custom_inline">
+            function <span class="apidocSignatureSpan">commonmark.HtmlRenderer.prototype.</span>custom_inline
+            <span class="apidocSignatureSpan">(node, entering)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.commonmark.HtmlRenderer.prototype.emph">
+            function <span class="apidocSignatureSpan">commonmark.HtmlRenderer.prototype.</span>emph
+            <span class="apidocSignatureSpan">(node, entering)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.commonmark.HtmlRenderer.prototype.heading">
+            function <span class="apidocSignatureSpan">commonmark.HtmlRenderer.prototype.</span>heading
+            <span class="apidocSignatureSpan">(node, entering)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.commonmark.HtmlRenderer.prototype.html_block">
+            function <span class="apidocSignatureSpan">commonmark.HtmlRenderer.prototype.</span>html_block
+            <span class="apidocSignatureSpan">(node)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.commonmark.HtmlRenderer.prototype.html_inline">
+            function <span class="apidocSignatureSpan">commonmark.HtmlRenderer.prototype.</span>html_inline
+            <span class="apidocSignatureSpan">(node)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.commonmark.HtmlRenderer.prototype.image">
+            function <span class="apidocSignatureSpan">commonmark.HtmlRenderer.prototype.</span>image
+            <span class="apidocSignatureSpan">(node, entering)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.commonmark.HtmlRenderer.prototype.item">
+            function <span class="apidocSignatureSpan">commonmark.HtmlRenderer.prototype.</span>item
+            <span class="apidocSignatureSpan">(node, entering)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.commonmark.HtmlRenderer.prototype.linebreak">
+            function <span class="apidocSignatureSpan">commonmark.HtmlRenderer.prototype.</span>linebreak
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.commonmark.HtmlRenderer.prototype.link">
+            function <span class="apidocSignatureSpan">commonmark.HtmlRenderer.prototype.</span>link
+            <span class="apidocSignatureSpan">(node, entering)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.commonmark.HtmlRenderer.prototype.list">
+            function <span class="apidocSignatureSpan">commonmark.HtmlRenderer.prototype.</span>list
+            <span class="apidocSignatureSpan">(node, entering)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.commonmark.HtmlRenderer.prototype.out">
+            function <span class="apidocSignatureSpan">commonmark.HtmlRenderer.prototype.</span>out
+            <span class="apidocSignatureSpan">(s)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.commonmark.HtmlRenderer.prototype.paragraph">
+            function <span class="apidocSignatureSpan">commonmark.HtmlRenderer.prototype.</span>paragraph
+            <span class="apidocSignatureSpan">(node, entering)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.commonmark.HtmlRenderer.prototype.softbreak">
+            function <span class="apidocSignatureSpan">commonmark.HtmlRenderer.prototype.</span>softbreak
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.commonmark.HtmlRenderer.prototype.strong">
+            function <span class="apidocSignatureSpan">commonmark.HtmlRenderer.prototype.</span>strong
+            <span class="apidocSignatureSpan">(node, entering)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.commonmark.HtmlRenderer.prototype.tag">
+            function <span class="apidocSignatureSpan">commonmark.HtmlRenderer.prototype.</span>tag
+            <span class="apidocSignatureSpan">(name, attrs, selfclosing)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.commonmark.HtmlRenderer.prototype.text">
+            function <span class="apidocSignatureSpan">commonmark.HtmlRenderer.prototype.</span>text
+            <span class="apidocSignatureSpan">(node)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.commonmark.HtmlRenderer.prototype.thematic_break">
+            function <span class="apidocSignatureSpan">commonmark.HtmlRenderer.prototype.</span>thematic_break
+            <span class="apidocSignatureSpan">(node)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.commonmark.Node">module commonmark.Node</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.commonmark.Node.Node">
+            function <span class="apidocSignatureSpan">commonmark.</span>Node
+            <span class="apidocSignatureSpan">(nodeType, sourcepos)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.commonmark.Node.prototype">module commonmark.Node.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.commonmark.Node.prototype.appendChild">
+            function <span class="apidocSignatureSpan">commonmark.Node.prototype.</span>appendChild
+            <span class="apidocSignatureSpan">(child)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.commonmark.Node.prototype.insertAfter">
+            function <span class="apidocSignatureSpan">commonmark.Node.prototype.</span>insertAfter
+            <span class="apidocSignatureSpan">(sibling)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.commonmark.Node.prototype.insertBefore">
+            function <span class="apidocSignatureSpan">commonmark.Node.prototype.</span>insertBefore
+            <span class="apidocSignatureSpan">(sibling)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.commonmark.Node.prototype.prependChild">
+            function <span class="apidocSignatureSpan">commonmark.Node.prototype.</span>prependChild
+            <span class="apidocSignatureSpan">(child)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.commonmark.Node.prototype.unlink">
+            function <span class="apidocSignatureSpan">commonmark.Node.prototype.</span>unlink
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.commonmark.Node.prototype.walker">
+            function <span class="apidocSignatureSpan">commonmark.Node.prototype.</span>walker
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.commonmark.common">module commonmark.common</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.commonmark.common.escapeXml">
+            function <span class="apidocSignatureSpan">commonmark.common.</span>escapeXml
+            <span class="apidocSignatureSpan">(s, preserve_entities)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.commonmark.common.normalizeURI">
+            function <span class="apidocSignatureSpan">commonmark.common.</span>normalizeURI
+            <span class="apidocSignatureSpan">(uri)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.commonmark.common.unescapeString">
+            function <span class="apidocSignatureSpan">commonmark.common.</span>unescapeString
+            <span class="apidocSignatureSpan">(s)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">commonmark.common.</span>reHtmlTag</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">commonmark.common.</span>CLOSETAG</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">commonmark.common.</span>ENTITY</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">commonmark.common.</span>ESCAPABLE</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">commonmark.common.</span>OPENTAG</span>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.commonmark" id="apidoc.module.commonmark">module commonmark</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.commonmark.HtmlRenderer" id="apidoc.element.commonmark.HtmlRenderer">
+        function <span class="apidocSignatureSpan">commonmark.</span>HtmlRenderer
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function HtmlRenderer(options) {
+  options = options || {};
+  // by default, soft breaks are rendered as newlines in HTML
+  options.softbreak = options.softbreak || &#x27;\n&#x27;;
+  // set to &#x22;&#x3c;br /&#x3e;&#x22; to make them hard breaks
+  // set to &#x22; &#x22; if you want to ignore line wrapping in source
+
+  this.disableTags = 0;
+  this.lastOut = &#x22;\n&#x22;;
+  this.options = options;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+manipulating the AST between parsing and rendering.  For example, one
+could transform emphasis into ALL CAPS.
+
+Here&#x27;s a basic usage example:
+
+``` js
+var reader = new commonmark.Parser();
+var writer = new commonmark.<span class="apidocCodeKeywordSpan">HtmlRenderer</span>();
+var parsed = reader.parse(&#x22;Hello *world*&#x22;); // parsed is a &#x27;Node&#x27; tree
+// transform parsed if you like...
+var result = writer.render(parsed); // result is a String
+```
+
+The constructors for `Parser` and `HtmlRenderer` take an optional
+`options` parameter:
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.commonmark.Node" id="apidoc.element.commonmark.Node">
+        function <span class="apidocSignatureSpan">commonmark.</span>Node
+        <span class="apidocSignatureSpan">(nodeType, sourcepos)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">Node = function (nodeType, sourcepos) {
+    this._type = nodeType;
+    this._parent = null;
+    this._firstChild = null;
+    this._lastChild = null;
+    this._prev = null;
+    this._next = null;
+    this._sourcepos = sourcepos;
+    this._lastLineBlank = false;
+    this._open = true;
+    this._string_content = null;
+    this._literal = null;
+    this._listData = {};
+    this._info = null;
+    this._destination = null;
+    this._title = null;
+    this._isFenced = false;
+    this._fenceChar = null;
+    this._fenceLength = 0;
+    this._fenceOffset = null;
+    this._level = null;
+    this._onEnter = null;
+    this._onExit = null;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.commonmark.Parser" id="apidoc.element.commonmark.Parser">
+        function <span class="apidocSignatureSpan">commonmark.</span>Parser
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Parser(options){
+    return {
+        doc: new Document(),
+        blocks: blocks,
+        blockStarts: blockStarts,
+        tip: this.doc,
+        oldtip: this.doc,
+        currentLine: &#x22;&#x22;,
+        lineNumber: 0,
+        offset: 0,
+        column: 0,
+        nextNonspace: 0,
+        nextNonspaceColumn: 0,
+        indent: 0,
+        indented: false,
+        blank: false,
+        partiallyConsumedTab: false,
+        allClosed: true,
+        lastMatchedContainer: this.doc,
+        refmap: {},
+        lastLineLength: 0,
+        inlineParser: new InlineParser(options),
+        findNextNonspace: findNextNonspace,
+        advanceOffset: advanceOffset,
+        advanceNextNonspace: advanceNextNonspace,
+        addLine: addLine,
+        addChild: addChild,
+        incorporateLine: incorporateLine,
+        finalize: finalize,
+        processInlines: processInlines,
+        closeUnmatchedBlocks: closeUnmatchedBlocks,
+        parse: parse,
+        options: options || {}
+    };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+and then renders this AST as HTML.  This opens up the possibility of
+manipulating the AST between parsing and rendering.  For example, one
+could transform emphasis into ALL CAPS.
+
+Here&#x27;s a basic usage example:
+
+``` js
+var reader = new commonmark.<span class="apidocCodeKeywordSpan">Parser</span>();
+var writer = new commonmark.HtmlRenderer();
+var parsed = reader.parse(&#x22;Hello *world*&#x22;); // parsed is a &#x27;Node&#x27; tree
+// transform parsed if you like...
+var result = writer.render(parsed); // result is a String
+```
+
+The constructors for `Parser` and `HtmlRenderer` take an optional
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.commonmark.XmlRenderer" id="apidoc.element.commonmark.XmlRenderer">
+        function <span class="apidocSignatureSpan">commonmark.</span>XmlRenderer
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function XmlRenderer(options){
+    return {
+        // default options:
+        softbreak: &#x27;\n&#x27;, // by default, soft breaks are rendered as newlines in HTML
+        // set to &#x22;&#x3c;br /&#x3e;&#x22; to make them hard breaks
+        // set to &#x22; &#x22; if you want to ignore line wrapping in source
+        escape: escapeXml,
+        options: options || {},
+        render: renderNodes
+    };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+that is `true` if the escaped string is to be included in an
+attribute.
+
+In addition to the `HtmlRenderer`, there is an `XmlRenderer`, which
+will produce an XML representation of the AST:
+
+``` js
+var writer = new commonmark.<span class="apidocCodeKeywordSpan">XmlRenderer</span>({sourcepos: true});
+```
+
+The parser returns a Node.  The following public properties are defined
+(those marked &#x22;read-only&#x22; have only a getter, not a setter):
+
+- `type` (read-only):  a String, one of
+`text`, `softbreak`, `linebreak`, `emph`, `strong`,
+...</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.commonmark.HtmlRenderer" id="apidoc.module.commonmark.HtmlRenderer">module commonmark.HtmlRenderer</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.commonmark.HtmlRenderer.HtmlRenderer" id="apidoc.element.commonmark.HtmlRenderer.HtmlRenderer">
+        function <span class="apidocSignatureSpan">commonmark.</span>HtmlRenderer
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function HtmlRenderer(options) {
+  options = options || {};
+  // by default, soft breaks are rendered as newlines in HTML
+  options.softbreak = options.softbreak || &#x27;\n&#x27;;
+  // set to &#x22;&#x3c;br /&#x3e;&#x22; to make them hard breaks
+  // set to &#x22; &#x22; if you want to ignore line wrapping in source
+
+  this.disableTags = 0;
+  this.lastOut = &#x22;\n&#x22;;
+  this.options = options;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+manipulating the AST between parsing and rendering.  For example, one
+could transform emphasis into ALL CAPS.
+
+Here&#x27;s a basic usage example:
+
+``` js
+var reader = new commonmark.Parser();
+var writer = new commonmark.<span class="apidocCodeKeywordSpan">HtmlRenderer</span>();
+var parsed = reader.parse(&#x22;Hello *world*&#x22;); // parsed is a &#x27;Node&#x27; tree
+// transform parsed if you like...
+var result = writer.render(parsed); // result is a String
+```
+
+The constructors for `Parser` and `HtmlRenderer` take an optional
+`options` parameter:
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.commonmark.HtmlRenderer.prototype" id="apidoc.module.commonmark.HtmlRenderer.prototype">module commonmark.HtmlRenderer.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.commonmark.HtmlRenderer.prototype.attrs" id="apidoc.element.commonmark.HtmlRenderer.prototype.attrs">
+        function <span class="apidocSignatureSpan">commonmark.HtmlRenderer.prototype.</span>attrs
+        <span class="apidocSignatureSpan">(node)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function attrs(node) {
+  var att = [];
+  if (this.options.sourcepos) {
+      var pos = node.sourcepos;
+      if (pos) {
+          att.push([&#x27;data-sourcepos&#x27;, String(pos[0][0]) + &#x27;:&#x27; +
+                      String(pos[0][1]) + &#x27;-&#x27; + String(pos[1][0]) + &#x27;:&#x27; +
+                      String(pos[1][1])]);
+      }
+  }
+  return att;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.commonmark.HtmlRenderer.prototype.block_quote" id="apidoc.element.commonmark.HtmlRenderer.prototype.block_quote">
+        function <span class="apidocSignatureSpan">commonmark.HtmlRenderer.prototype.</span>block_quote
+        <span class="apidocSignatureSpan">(node, entering)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function block_quote(node, entering) {
+  var attrs = this.attrs(node);
+  if (entering) {
+      this.cr();
+      this.tag(&#x27;blockquote&#x27;, attrs);
+      this.cr();
+  } else {
+      this.cr();
+      this.tag(&#x27;/blockquote&#x27;);
+      this.cr();
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.commonmark.HtmlRenderer.prototype.code" id="apidoc.element.commonmark.HtmlRenderer.prototype.code">
+        function <span class="apidocSignatureSpan">commonmark.HtmlRenderer.prototype.</span>code
+        <span class="apidocSignatureSpan">(node)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function code(node) {
+  this.tag(&#x27;code&#x27;);
+  this.out(node.literal);
+  this.tag(&#x27;/code&#x27;);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.commonmark.HtmlRenderer.prototype.code_block" id="apidoc.element.commonmark.HtmlRenderer.prototype.code_block">
+        function <span class="apidocSignatureSpan">commonmark.HtmlRenderer.prototype.</span>code_block
+        <span class="apidocSignatureSpan">(node)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function code_block(node) {
+  var info_words = node.info ? node.info.split(/\s+/) : []
+    , attrs = this.attrs(node);
+  if (info_words.length &#x3e; 0 &#x26;&#x26; info_words[0].length &#x3e; 0) {
+      attrs.push([&#x27;class&#x27;, &#x27;language-&#x27; + esc(info_words[0], true)]);
+  }
+  this.cr();
+  this.tag(&#x27;pre&#x27;);
+  this.tag(&#x27;code&#x27;, attrs);
+  this.out(node.literal);
+  this.tag(&#x27;/code&#x27;);
+  this.tag(&#x27;/pre&#x27;);
+  this.cr();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.commonmark.HtmlRenderer.prototype.custom_block" id="apidoc.element.commonmark.HtmlRenderer.prototype.custom_block">
+        function <span class="apidocSignatureSpan">commonmark.HtmlRenderer.prototype.</span>custom_block
+        <span class="apidocSignatureSpan">(node, entering)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function custom_block(node, entering) {
+  this.cr();
+  if (entering &#x26;&#x26; node.onEnter) {
+      this.lit(node.onEnter);
+  } else if (!entering &#x26;&#x26; node.onExit) {
+      this.lit(node.onExit);
+  }
+  this.cr();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.commonmark.HtmlRenderer.prototype.custom_inline" id="apidoc.element.commonmark.HtmlRenderer.prototype.custom_inline">
+        function <span class="apidocSignatureSpan">commonmark.HtmlRenderer.prototype.</span>custom_inline
+        <span class="apidocSignatureSpan">(node, entering)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function custom_inline(node, entering) {
+  if (entering &#x26;&#x26; node.onEnter) {
+      this.lit(node.onEnter);
+  } else if (!entering &#x26;&#x26; node.onExit) {
+      this.lit(node.onExit);
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.commonmark.HtmlRenderer.prototype.emph" id="apidoc.element.commonmark.HtmlRenderer.prototype.emph">
+        function <span class="apidocSignatureSpan">commonmark.HtmlRenderer.prototype.</span>emph
+        <span class="apidocSignatureSpan">(node, entering)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function emph(node, entering) {
+  this.tag(entering ? &#x27;em&#x27; : &#x27;/em&#x27;);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.commonmark.HtmlRenderer.prototype.heading" id="apidoc.element.commonmark.HtmlRenderer.prototype.heading">
+        function <span class="apidocSignatureSpan">commonmark.HtmlRenderer.prototype.</span>heading
+        <span class="apidocSignatureSpan">(node, entering)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function heading(node, entering) {
+  var tagname = &#x27;h&#x27; + node.level
+    , attrs = this.attrs(node);
+  if (entering) {
+      this.cr();
+      this.tag(tagname, attrs);
+  } else {
+      this.tag(&#x27;/&#x27; + tagname);
+      this.cr();
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.commonmark.HtmlRenderer.prototype.html_block" id="apidoc.element.commonmark.HtmlRenderer.prototype.html_block">
+        function <span class="apidocSignatureSpan">commonmark.HtmlRenderer.prototype.</span>html_block
+        <span class="apidocSignatureSpan">(node)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function html_block(node) {
+  this.cr();
+  if (this.options.safe) {
+      this.lit(&#x27;&#x3c;!-- raw HTML omitted --&#x3e;&#x27;);
+  } else {
+      this.lit(node.literal);
+  }
+  this.cr();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.commonmark.HtmlRenderer.prototype.html_inline" id="apidoc.element.commonmark.HtmlRenderer.prototype.html_inline">
+        function <span class="apidocSignatureSpan">commonmark.HtmlRenderer.prototype.</span>html_inline
+        <span class="apidocSignatureSpan">(node)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function html_inline(node) {
+  if (this.options.safe) {
+      this.lit(&#x27;&#x3c;!-- raw HTML omitted --&#x3e;&#x27;);
+  } else {
+      this.lit(node.literal);
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.commonmark.HtmlRenderer.prototype.image" id="apidoc.element.commonmark.HtmlRenderer.prototype.image">
+        function <span class="apidocSignatureSpan">commonmark.HtmlRenderer.prototype.</span>image
+        <span class="apidocSignatureSpan">(node, entering)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function image(node, entering) {
+  if (entering) {
+      if (this.disableTags === 0) {
+          if (this.options.safe &#x26;&#x26;
+               potentiallyUnsafe(node.destination)) {
+              this.lit(&#x27;&#x3c;img src=&#x22;&#x22; alt=&#x22;&#x27;);
+          } else {
+              this.lit(&#x27;&#x3c;img src=&#x22;&#x27; + esc(node.destination, true) +
+                  &#x27;&#x22; alt=&#x22;&#x27;);
+          }
+      }
+      this.disableTags += 1;
+  } else {
+      this.disableTags -= 1;
+      if (this.disableTags === 0) {
+          if (node.title) {
+              this.lit(&#x27;&#x22; title=&#x22;&#x27; + esc(node.title, true));
+          }
+          this.lit(&#x27;&#x22; /&#x3e;&#x27;);
+      }
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.commonmark.HtmlRenderer.prototype.item" id="apidoc.element.commonmark.HtmlRenderer.prototype.item">
+        function <span class="apidocSignatureSpan">commonmark.HtmlRenderer.prototype.</span>item
+        <span class="apidocSignatureSpan">(node, entering)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function item(node, entering) {
+  var attrs = this.attrs(node);
+  if (entering) {
+      this.tag(&#x27;li&#x27;, attrs);
+  } else {
+      this.tag(&#x27;/li&#x27;);
+      this.cr();
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.commonmark.HtmlRenderer.prototype.linebreak" id="apidoc.element.commonmark.HtmlRenderer.prototype.linebreak">
+        function <span class="apidocSignatureSpan">commonmark.HtmlRenderer.prototype.</span>linebreak
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function linebreak() {
+  this.tag(&#x27;br&#x27;, [], true);
+  this.cr();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.commonmark.HtmlRenderer.prototype.link" id="apidoc.element.commonmark.HtmlRenderer.prototype.link">
+        function <span class="apidocSignatureSpan">commonmark.HtmlRenderer.prototype.</span>link
+        <span class="apidocSignatureSpan">(node, entering)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function link(node, entering) {
+  var attrs = this.attrs(node);
+  if (entering) {
+      if (!(this.options.safe &#x26;&#x26; potentiallyUnsafe(node.destination))) {
+          attrs.push([&#x27;href&#x27;, esc(node.destination, true)]);
+      }
+      if (node.title) {
+          attrs.push([&#x27;title&#x27;, esc(node.title, true)]);
+      }
+      this.tag(&#x27;a&#x27;, attrs);
+  } else {
+      this.tag(&#x27;/a&#x27;);
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.commonmark.HtmlRenderer.prototype.list" id="apidoc.element.commonmark.HtmlRenderer.prototype.list">
+        function <span class="apidocSignatureSpan">commonmark.HtmlRenderer.prototype.</span>list
+        <span class="apidocSignatureSpan">(node, entering)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function list(node, entering) {
+  var tagname = node.listType === &#x27;bullet&#x27; ? &#x27;ul&#x27; : &#x27;ol&#x27;
+    , attrs = this.attrs(node);
+
+  if (entering) {
+      var start = node.listStart;
+      if (start !== null &#x26;&#x26; start !== 1) {
+          attrs.push([&#x27;start&#x27;, start.toString()]);
+      }
+      this.cr();
+      this.tag(tagname, attrs);
+      this.cr();
+  } else {
+      this.cr();
+      this.tag(&#x27;/&#x27; + tagname);
+      this.cr();
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.commonmark.HtmlRenderer.prototype.out" id="apidoc.element.commonmark.HtmlRenderer.prototype.out">
+        function <span class="apidocSignatureSpan">commonmark.HtmlRenderer.prototype.</span>out
+        <span class="apidocSignatureSpan">(s)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function out(s) {
+  this.lit(esc(s, false));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.commonmark.HtmlRenderer.prototype.paragraph" id="apidoc.element.commonmark.HtmlRenderer.prototype.paragraph">
+        function <span class="apidocSignatureSpan">commonmark.HtmlRenderer.prototype.</span>paragraph
+        <span class="apidocSignatureSpan">(node, entering)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function paragraph(node, entering) {
+  var grandparent = node.parent.parent
+    , attrs = this.attrs(node);
+  if (grandparent !== null &#x26;&#x26;
+      grandparent.type === &#x27;list&#x27;) {
+      if (grandparent.listTight) {
+          return;
+      }
+  }
+  if (entering) {
+      this.cr();
+      this.tag(&#x27;p&#x27;, attrs);
+  } else {
+      this.tag(&#x27;/p&#x27;);
+      this.cr();
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.commonmark.HtmlRenderer.prototype.softbreak" id="apidoc.element.commonmark.HtmlRenderer.prototype.softbreak">
+        function <span class="apidocSignatureSpan">commonmark.HtmlRenderer.prototype.</span>softbreak
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function softbreak() {
+  this.lit(this.options.softbreak);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.commonmark.HtmlRenderer.prototype.strong" id="apidoc.element.commonmark.HtmlRenderer.prototype.strong">
+        function <span class="apidocSignatureSpan">commonmark.HtmlRenderer.prototype.</span>strong
+        <span class="apidocSignatureSpan">(node, entering)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function strong(node, entering) {
+  this.tag(entering ? &#x27;strong&#x27; : &#x27;/strong&#x27;);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.commonmark.HtmlRenderer.prototype.tag" id="apidoc.element.commonmark.HtmlRenderer.prototype.tag">
+        function <span class="apidocSignatureSpan">commonmark.HtmlRenderer.prototype.</span>tag
+        <span class="apidocSignatureSpan">(name, attrs, selfclosing)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function tag(name, attrs, selfclosing) {
+    if (this.disableTags &#x3e; 0) {
+        return;
+    }
+    this.buffer += (&#x27;&#x3c;&#x27; + name);
+    if (attrs &#x26;&#x26; attrs.length &#x3e; 0) {
+        var i = 0;
+        var attrib;
+        while ((attrib = attrs[i]) !== undefined) {
+            this.buffer += (&#x27; &#x27; + attrib[0] + &#x27;=&#x22;&#x27; + attrib[1] + &#x27;&#x22;&#x27;);
+            i++;
+        }
+    }
+    if (selfclosing) {
+        this.buffer += &#x27; /&#x27;;
+    }
+    this.buffer += &#x27;&#x3e;&#x27;;
+    this.lastOut = &#x27;&#x3e;&#x27;;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.commonmark.HtmlRenderer.prototype.text" id="apidoc.element.commonmark.HtmlRenderer.prototype.text">
+        function <span class="apidocSignatureSpan">commonmark.HtmlRenderer.prototype.</span>text
+        <span class="apidocSignatureSpan">(node)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function text(node) {
+  this.out(node.literal);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.commonmark.HtmlRenderer.prototype.thematic_break" id="apidoc.element.commonmark.HtmlRenderer.prototype.thematic_break">
+        function <span class="apidocSignatureSpan">commonmark.HtmlRenderer.prototype.</span>thematic_break
+        <span class="apidocSignatureSpan">(node)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function thematic_break(node) {
+  var attrs = this.attrs(node);
+  this.cr();
+  this.tag(&#x27;hr&#x27;, attrs, true);
+  this.cr();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.commonmark.Node" id="apidoc.module.commonmark.Node">module commonmark.Node</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.commonmark.Node.Node" id="apidoc.element.commonmark.Node.Node">
+        function <span class="apidocSignatureSpan">commonmark.</span>Node
+        <span class="apidocSignatureSpan">(nodeType, sourcepos)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">Node = function (nodeType, sourcepos) {
+    this._type = nodeType;
+    this._parent = null;
+    this._firstChild = null;
+    this._lastChild = null;
+    this._prev = null;
+    this._next = null;
+    this._sourcepos = sourcepos;
+    this._lastLineBlank = false;
+    this._open = true;
+    this._string_content = null;
+    this._literal = null;
+    this._listData = {};
+    this._info = null;
+    this._destination = null;
+    this._title = null;
+    this._isFenced = false;
+    this._fenceChar = null;
+    this._fenceLength = 0;
+    this._fenceOffset = null;
+    this._level = null;
+    this._onEnter = null;
+    this._onExit = null;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.commonmark.Node.prototype" id="apidoc.module.commonmark.Node.prototype">module commonmark.Node.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.commonmark.Node.prototype.appendChild" id="apidoc.element.commonmark.Node.prototype.appendChild">
+        function <span class="apidocSignatureSpan">commonmark.Node.prototype.</span>appendChild
+        <span class="apidocSignatureSpan">(child)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">appendChild = function (child) {
+    child.unlink();
+    child._parent = this;
+    if (this._lastChild) {
+        this._lastChild._next = child;
+        child._prev = this._lastChild;
+        this._lastChild = child;
+    } else {
+        this._firstChild = child;
+        this._lastChild = child;
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    while (!this.blocks[this.tip.type].canContain(tag)) {
+        this.finalize(this.tip, this.lineNumber - 1);
+    }
+
+    var column_number = offset + 1; // offset 0 = column 1
+    var newBlock = new Node(tag, [[this.lineNumber, column_number], [0, 0]]);
+    newBlock._string_content = &#x27;&#x27;;
+    this.tip.<span class="apidocCodeKeywordSpan">appendChild</span>(newBlock);
+    this.tip = newBlock;
+    return newBlock;
+};
+
+// Parse a list marker and return data on the marker (type,
+// start, delimiter, bullet character, padding) or null.
+var parseListMarker = function(parser, container) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.commonmark.Node.prototype.insertAfter" id="apidoc.element.commonmark.Node.prototype.insertAfter">
+        function <span class="apidocSignatureSpan">commonmark.Node.prototype.</span>insertAfter
+        <span class="apidocSignatureSpan">(sibling)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">insertAfter = function (sibling) {
+    sibling.unlink();
+    sibling._next = this._next;
+    if (sibling._next) {
+        sibling._next._prev = sibling;
+    }
+    sibling._prev = this;
+    this._next = sibling;
+    sibling._parent = this._parent;
+    if (!sibling._next) {
+        sibling._parent._lastChild = sibling;
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+if (!parser.indented &#x26;&#x26;
+    container.type === &#x27;paragraph&#x27; &#x26;&#x26;
+           ((match = parser.currentLine.slice(parser.nextNonspace).match(reSetextHeadingLine)))) {
+    parser.closeUnmatchedBlocks();
+    var heading = new Node(&#x27;heading&#x27;, container.sourcepos);
+    heading.level = match[0][0] === &#x27;=&#x27; ? 1 : 2;
+    heading._string_content = container._string_content;
+    container.<span class="apidocCodeKeywordSpan">insertAfter</span>(heading);
+    container.unlink();
+    parser.tip = heading;
+    parser.advanceOffset(parser.currentLine.length - parser.offset, false);
+    return 2;
+} else {
+    return 0;
+}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.commonmark.Node.prototype.insertBefore" id="apidoc.element.commonmark.Node.prototype.insertBefore">
+        function <span class="apidocSignatureSpan">commonmark.Node.prototype.</span>insertBefore
+        <span class="apidocSignatureSpan">(sibling)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">insertBefore = function (sibling) {
+    sibling.unlink();
+    sibling._prev = this._prev;
+    if (sibling._prev) {
+        sibling._prev._next = sibling;
+    }
+    sibling._next = this;
+    this._prev = sibling;
+    sibling._parent = this._parent;
+    if (!sibling._prev) {
+        sibling._parent._firstChild = sibling;
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+if (node.type === &#x27;emph&#x27;) {
+  if (event.entering) {
+    inEmph = true;
+  } else {
+    inEmph = false;
+    // add Emph node&#x27;s children as siblings
+    while (node.firstChild) {
+      node.<span class="apidocCodeKeywordSpan">insertBefore</span>(node.firstChild);
+    }
+    // remove the empty Emph node
+    node.unlink()
+  }
+} else if (inEmph &#x26;&#x26; node.type === &#x27;text&#x27;) {
+    node.literal = node.literal.toUpperCase();
+}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.commonmark.Node.prototype.prependChild" id="apidoc.element.commonmark.Node.prototype.prependChild">
+        function <span class="apidocSignatureSpan">commonmark.Node.prototype.</span>prependChild
+        <span class="apidocSignatureSpan">(child)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">prependChild = function (child) {
+    child.unlink();
+    child._parent = this;
+    if (this._firstChild) {
+        this._firstChild._prev = child;
+        child._next = this._firstChild;
+        this._firstChild = child;
+    } else {
+        this._firstChild = child;
+        this._lastChild = child;
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.commonmark.Node.prototype.unlink" id="apidoc.element.commonmark.Node.prototype.unlink">
+        function <span class="apidocSignatureSpan">commonmark.Node.prototype.</span>unlink
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">unlink = function () {
+    if (this._prev) {
+        this._prev._next = this._next;
+    } else if (this._parent) {
+        this._parent._firstChild = this._next;
+    }
+    if (this._next) {
+        this._next._prev = this._prev;
+    } else if (this._parent) {
+        this._parent._lastChild = this._prev;
+    }
+    this._parent = null;
+    this._next = null;
+    this._prev = null;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    } else {
+      inEmph = false;
+      // add Emph node&#x27;s children as siblings
+      while (node.firstChild) {
+        node.insertBefore(node.firstChild);
+      }
+      // remove the empty Emph node
+      node.<span class="apidocCodeKeywordSpan">unlink</span>()
+    }
+  } else if (inEmph &#x26;&#x26; node.type === &#x27;text&#x27;) {
+      node.literal = node.literal.toUpperCase();
+  }
+}
+```
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.commonmark.Node.prototype.walker" id="apidoc.element.commonmark.Node.prototype.walker">
+        function <span class="apidocSignatureSpan">commonmark.Node.prototype.</span>walker
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">walker = function () {
+    var walker = new NodeWalker(this);
+    return walker;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+needed unless you do destructive updates to the Node tree.)
+
+Here is an example of the use of a NodeWalker to iterate through
+the tree, making transformations.  This simple example converts
+the contents of all `text` nodes to ALL CAPS:
+
+``` js
+var walker = parsed.<span class="apidocCodeKeywordSpan">walker</span>();
+var event, node;
+
+while ((event = walker.next())) {
+node = event.node;
+if (event.entering &#x26;&#x26; node.type === &#x27;text&#x27;) {
+  node.literal = node.literal.toUpperCase();
+}
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.commonmark.common" id="apidoc.module.commonmark.common">module commonmark.common</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.commonmark.common.escapeXml" id="apidoc.element.commonmark.common.escapeXml">
+        function <span class="apidocSignatureSpan">commonmark.common.</span>escapeXml
+        <span class="apidocSignatureSpan">(s, preserve_entities)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">escapeXml = function (s, preserve_entities) {
+    if (reXmlSpecial.test(s)) {
+        if (preserve_entities) {
+            return s.replace(reXmlSpecialOrEntity, replaceUnsafeChar);
+        } else {
+            return s.replace(reXmlSpecial, replaceUnsafeChar);
+        }
+    } else {
+        return s;
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.commonmark.common.normalizeURI" id="apidoc.element.commonmark.common.normalizeURI">
+        function <span class="apidocSignatureSpan">commonmark.common.</span>normalizeURI
+        <span class="apidocSignatureSpan">(uri)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">normalizeURI = function (uri) {
+    try {
+        return encode(decode(uri));
+    }
+    catch(err) {
+        return uri;
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.commonmark.common.unescapeString" id="apidoc.element.commonmark.common.unescapeString">
+        function <span class="apidocSignatureSpan">commonmark.common.</span>unescapeString
+        <span class="apidocSignatureSpan">(s)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">unescapeString = function (s) {
+    if (reBackslashOrAmp.test(s)) {
+        return s.replace(reEntityOrEscapedChar, unescapeChar);
+    } else {
+        return s;
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
