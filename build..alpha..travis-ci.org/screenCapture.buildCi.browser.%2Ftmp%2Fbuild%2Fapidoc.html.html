@@ -92,6 +92,15 @@
 
         <li>
 
+            <a class="apidocElementLiA" href="#apidoc.element.commonmark.renderer">
+            function <span class="apidocSignatureSpan">commonmark.</span>renderer
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
             <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">commonmark.</span>HtmlRenderer.prototype</span>
 
         </li>
@@ -105,6 +114,12 @@
         <li>
 
             <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">commonmark.</span>common</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">commonmark.</span>renderer.prototype</span>
 
         </li>
 
@@ -463,6 +478,59 @@
 
     </ol></li>
 
+    <li class="apidocModuleLi"><a href="#apidoc.module.commonmark.renderer">module commonmark.renderer</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.commonmark.renderer.renderer">
+            function <span class="apidocSignatureSpan">commonmark.</span>renderer
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.commonmark.renderer.prototype">module commonmark.renderer.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.commonmark.renderer.prototype.cr">
+            function <span class="apidocSignatureSpan">commonmark.renderer.prototype.</span>cr
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.commonmark.renderer.prototype.lit">
+            function <span class="apidocSignatureSpan">commonmark.renderer.prototype.</span>lit
+            <span class="apidocSignatureSpan">(str)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.commonmark.renderer.prototype.out">
+            function <span class="apidocSignatureSpan">commonmark.renderer.prototype.</span>out
+            <span class="apidocSignatureSpan">(str)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.commonmark.renderer.prototype.render">
+            function <span class="apidocSignatureSpan">commonmark.renderer.prototype.</span>render
+            <span class="apidocSignatureSpan">(ast)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
 </ol></div>
 
 <div class="apidocSectionDiv">
@@ -646,6 +714,21 @@ The parser returns a Node.  The following public properties are defined
 
 
 
+    <h2>
+        <a href="#apidoc.element.commonmark.renderer" id="apidoc.element.commonmark.renderer">
+        function <span class="apidocSignatureSpan">commonmark.</span>renderer
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Renderer() {}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
 
 
 
@@ -722,7 +805,23 @@ The constructors for `Parser` and `HtmlRenderer` take an optional
   }
   return att;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+function linebreak() {
+this.tag('br', [], true);
+this.cr();
+}
+
+function link(node, entering) {
+var attrs = this.<span class="apidocCodeKeywordSpan">attrs</span>(node);
+if (entering) {
+    if (!(this.options.safe &amp;&amp; potentiallyUnsafe(node.destination))) {
+        attrs.push(['href', esc(node.destination, true)]);
+    }
+    if (node.title) {
+        attrs.push(['title', esc(node.title, true)]);
+    }
+...</pre></li>
     </ul>
 
 
@@ -1049,7 +1148,23 @@ The constructors for `Parser` and `HtmlRenderer` take an optional
     <li>description and source-code<pre class="apidocCodePre">function out(s) {
   this.lit(esc(s, false));
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  this.lastOut = "\n";
+  this.options = options;
+}
+
+/* Node methods */
+
+function text(node) {
+  this.<span class="apidocCodeKeywordSpan">out</span>(node.literal);
+}
+
+function softbreak() {
+  this.lit(this.options.softbreak);
+}
+
+function linebreak() {
+...</pre></li>
     </ul>
 
 
@@ -1139,7 +1254,23 @@ The constructors for `Parser` and `HtmlRenderer` take an optional
     this.buffer += '&gt;';
     this.lastOut = '&gt;';
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+}
+
+function softbreak() {
+this.lit(this.options.softbreak);
+}
+
+function linebreak() {
+this.<span class="apidocCodeKeywordSpan">tag</span>('br', [], true);
+this.cr();
+}
+
+function link(node, entering) {
+var attrs = this.attrs(node);
+if (entering) {
+    if (!(this.options.safe &amp;&amp; potentiallyUnsafe(node.destination))) {
+...</pre></li>
     </ul>
 
 
@@ -1517,6 +1648,168 @@ if (event.entering &amp;&amp; node.type === 'text') {
 
 
 
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.commonmark.renderer" id="apidoc.module.commonmark.renderer">module commonmark.renderer</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.commonmark.renderer.renderer" id="apidoc.element.commonmark.renderer.renderer">
+        function <span class="apidocSignatureSpan">commonmark.</span>renderer
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Renderer() {}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.commonmark.renderer.prototype" id="apidoc.module.commonmark.renderer.prototype">module commonmark.renderer.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.commonmark.renderer.prototype.cr" id="apidoc.element.commonmark.renderer.prototype.cr">
+        function <span class="apidocSignatureSpan">commonmark.renderer.prototype.</span>cr
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function cr() {
+    if (this.lastOut !== '\n') {
+        this.lit('\n');
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+function softbreak() {
+this.lit(this.options.softbreak);
+}
+
+function linebreak() {
+this.tag('br', [], true);
+this.<span class="apidocCodeKeywordSpan">cr</span>();
+}
+
+function link(node, entering) {
+var attrs = this.attrs(node);
+if (entering) {
+    if (!(this.options.safe &amp;&amp; potentiallyUnsafe(node.destination))) {
+        attrs.push(['href', esc(node.destination, true)]);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.commonmark.renderer.prototype.lit" id="apidoc.element.commonmark.renderer.prototype.lit">
+        function <span class="apidocSignatureSpan">commonmark.renderer.prototype.</span>lit
+        <span class="apidocSignatureSpan">(str)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function lit(str) {
+  this.buffer += str;
+  this.lastOut = str;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+/* Node methods */
+
+function text(node) {
+  this.out(node.literal);
+}
+
+function softbreak() {
+  this.<span class="apidocCodeKeywordSpan">lit</span>(this.options.softbreak);
+}
+
+function linebreak() {
+  this.tag('br', [], true);
+  this.cr();
+}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.commonmark.renderer.prototype.out" id="apidoc.element.commonmark.renderer.prototype.out">
+        function <span class="apidocSignatureSpan">commonmark.renderer.prototype.</span>out
+        <span class="apidocSignatureSpan">(str)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function out(str) {
+  this.lit(str);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  this.lastOut = "\n";
+  this.options = options;
+}
+
+/* Node methods */
+
+function text(node) {
+  this.<span class="apidocCodeKeywordSpan">out</span>(node.literal);
+}
+
+function softbreak() {
+  this.lit(this.options.softbreak);
+}
+
+function linebreak() {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.commonmark.renderer.prototype.render" id="apidoc.element.commonmark.renderer.prototype.render">
+        function <span class="apidocSignatureSpan">commonmark.renderer.prototype.</span>render
+        <span class="apidocSignatureSpan">(ast)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function render(ast) {
+  var walker = ast.walker()
+    , event
+    , type;
+
+  this.buffer = '';
+  this.lastOut = '\n';
+
+  while((event = walker.next())) {
+    type = event.node.type;
+    if (this[type]) {
+      this[type](event.node, event.entering);
+    }
+  }
+  return this.buffer;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+Here's a basic usage example:
+
+``` js
+var reader = new commonmark.Parser();
+var writer = new commonmark.HtmlRenderer();
+var parsed = reader.parse("Hello *world*"); // parsed is a 'Node' tree
+// transform parsed if you like...
+var result = writer.<span class="apidocCodeKeywordSpan">render</span>(parsed); // result is a String
+```
+
+The constructors for `Parser` and `HtmlRenderer` take an optional
+`options` parameter:
+
+``` js
+var writer = new commonmark.HtmlRenderer({sourcepos: true});
+...</pre></li>
+    </ul>
 
 
 </div>
