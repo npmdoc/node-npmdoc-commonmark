@@ -1,6 +1,6 @@
 # npmdoc-commonmark
 
-#### api documentation for  [commonmark (v0.27.0)](http://commonmark.org)  [![npm package](https://img.shields.io/npm/v/npmdoc-commonmark.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-commonmark) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-commonmark.svg)](https://travis-ci.org/npmdoc/node-npmdoc-commonmark)
+#### basic api documentation for  [commonmark (v0.27.0)](http://commonmark.org)  [![npm package](https://img.shields.io/npm/v/npmdoc-commonmark.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-commonmark) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-commonmark.svg)](https://travis-ci.org/npmdoc/node-npmdoc-commonmark)
 
 #### a strongly specified, highly compatible variant of Markdown
 
